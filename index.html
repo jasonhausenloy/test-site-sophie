@@ -6,95 +6,63 @@
     <title>sophie kim</title>
     <style>
         :root {
-            --bg: #f8f5f1;
-            --text: #222;
-            --accent: #6495ED;
-            --muted: #666;
+            --bg-color: #f8f5f1;
+            --text-color: #222;
+            --accent-color: #6495ED;
+            --border-color: #ddd;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html {
+            background-color: var(--bg-color);
+        }
 
         body {
             font-family: Georgia, serif;
             font-size: 17px;
             line-height: 1.75;
             max-width: 600px;
-            margin: 4rem auto;
-            padding: 0 1.5rem;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        header {
-            margin-bottom: 3rem;
-        }
-
-        .profile {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            font-weight: normal;
-            margin-bottom: 0.5rem;
-        }
-
-        .tagline {
-            color: var(--muted);
-            font-style: italic;
-            margin-bottom: 1.5rem;
+            margin: 3rem auto;
+            padding: 0 1rem;
+            color: var(--text-color);
+            background-color: var(--bg-color);
         }
 
         p { margin-bottom: 1.5rem; }
 
         a {
-            color: var(--text);
-            text-decoration: underline;
-            text-decoration-color: var(--accent);
-            text-underline-offset: 3px;
+            color: var(--text-color);
+            text-decoration: none;
+            background-image: linear-gradient(var(--accent-color), var(--accent-color));
+            background-size: 0% 1px;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            transition: background-size 0.3s ease, color 0.2s ease;
         }
 
-        a:hover { color: var(--accent); }
+        a:hover {
+            color: var(--accent-color);
+            background-size: 100% 1px;
+        }
+
+        ::selection {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
 
         hr {
             border: none;
-            border-top: 1px solid #ddd;
-            margin: 2.5rem 0;
+            height: 6px;
+            background: linear-gradient(90deg,
+                var(--border-color) 0%, var(--border-color) 30%,
+                transparent 30%, transparent 70%,
+                var(--border-color) 70%, var(--border-color) 100%);
+            margin: 2rem 0;
         }
 
-        h2 {
-            font-size: 1rem;
+        h1 {
+            font-size: 17px;
             font-weight: normal;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--muted);
-            margin-bottom: 1rem;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        li { margin-bottom: 0.5rem; }
-
-        .item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .item-title { flex: 1; }
-
-        .item-meta {
-            font-size: 0.9rem;
-            color: var(--muted);
+            margin-bottom: 2rem;
         }
 
         .links {
@@ -104,79 +72,38 @@
         }
 
         footer {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: var(--muted);
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            opacity: 0.7;
+            font-style: italic;
         }
 
         @media (max-width: 500px) {
             body { margin: 2rem auto; }
-            .item { flex-direction: column; gap: 0; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop,q=95/YD0Eng12j2izw4EQ/sophie-ashford-aPXTo8CwXuKPHke1.png" alt="Sophie Kim" class="profile">
-        <h1>sophie kim</h1>
-        <p class="tagline">ai safety researcher. stanford '30.</p>
-    </header>
+    <h1>hi, i'm sophie.</h1>
 
-    <p>
-        i'm on a gap year from stanford (symbolic systems) to work on ai safety. i research biosecurity risks from ai, governance mechanisms, and how to keep advanced ai systems under meaningful human control.
-    </p>
+    <p>i'm taking a gap year from stanford to work on ai safety. i study symbolic systems — the overlap of philosophy, cognitive science, and computation — and i'm drawn to questions about how we build systems that stay aligned with what we actually want.</p>
 
-    <p>
-        youngest person admitted to the <a href="https://erafellowship.org">ERA fellowship</a> (&lt;1% acceptance). this spring i'm at the cambridge biosecurity hub developing tiered access controls for dual-use ai capabilities.
-    </p>
+    <p>right now i'm thinking about biosecurity and ai, trying to figure out what policy interventions might actually help. this spring i'll be at cambridge working on access controls for dual-use capabilities. before that i was writing about <a href="https://thecounterfactual.substack.com">whistleblower protections</a> and export controls.</p>
+
+    <p>i like reading, traveling, meeting new people, and going down rabbit holes in philosophy and psychology. fluent in spanish. low bar for reaching out.</p>
 
     <hr>
 
-    <h2>research</h2>
-    <ul>
-        <li>ai-enabled biosecurity risks & policy interventions</li>
-        <li>whistleblower protections for frontier ai labs</li>
-        <li>export control circumvention via cloud infrastructure</li>
-        <li>strategic equilibria & middle-power agency in ai</li>
-    </ul>
+    <p>i write at <a href="https://thecounterfactual.substack.com">the counterfactual</a>. more about me at <a href="https://curiouslysophie.com">curiouslysophie.com</a>.</p>
 
-    <hr>
-
-    <h2>experience</h2>
-    <ul>
-        <li class="item">
-            <span class="item-title">era fellow, cambridge biosecurity hub</span>
-            <span class="item-meta">2026</span>
-        </li>
-        <li class="item">
-            <span class="item-title">veritas fellow, midas project</span>
-            <span class="item-meta">2025</span>
-        </li>
-        <li class="item">
-            <span class="item-title">research collaborator, cais</span>
-            <span class="item-meta">2025</span>
-        </li>
-    </ul>
-
-    <hr>
-
-    <h2>writing</h2>
-    <p>
-        i write about ai policy and security at <a href="https://thecounterfactual.substack.com">the counterfactual</a>.
-    </p>
-
-    <hr>
-
-    <h2>links</h2>
     <div class="links">
         <a href="mailto:sophie@curiouslysophie.com">email</a>
         <a href="https://twitter.com/curiouslysophie">twitter</a>
-        <a href="https://curiouslysophie.com">personal site</a>
-        <a href="https://admonymous.co/curiouslysophie">anonymous feedback</a>
+        <a href="https://admonymous.co/curiouslysophie">feedback</a>
     </div>
 
     <footer>
-        <p>"tell me, what is it you plan to do with your one wild and precious life?" —mary oliver</p>
+        <p>"tell me, what is it you plan to do with your one wild and precious life?"</p>
     </footer>
 </body>
 </html>
