@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophie Kim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cornflower: #6495ED;
+            --periwinkle: #CCCCFF;
+            --deep-blue: #2C3E50;
+            --soft-gray: #F8F9FA;
+            --text: #1a1a2e;
+            --text-light: #4a4a5a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 8px 30px rgba(100, 149, 237, 0.2);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            color: var(--deep-blue);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--cornflower);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto 24px;
+            padding: 0 20px;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: var(--cornflower);
+            font-style: normal;
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--periwinkle);
+            color: var(--deep-blue);
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 0;
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--deep-blue);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--periwinkle);
+        }
+
+        /* About */
+        .about-content {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--cornflower);
+            font-weight: 500;
+        }
+
+        /* Research Areas */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .research-item {
+            background: white;
+            padding: 20px 24px;
+            border-radius: 12px;
+            border-left: 3px solid var(--cornflower);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+
+        .research-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .research-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            margin-bottom: 6px;
+        }
+
+        .research-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Experience */
+        .experience-item {
+            background: white;
+            padding: 24px 28px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            color: var(--deep-blue);
+            font-size: 1.05rem;
+        }
+
+        .experience-org {
+            color: var(--cornflower);
+            font-size: 0.95rem;
+        }
+
+        .experience-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            background: var(--soft-gray);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .experience-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Writing */
+        .writing-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            padding: 20px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
+        }
+
+        .writing-link:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(100, 149, 237, 0.15);
+        }
+
+        .writing-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--cornflower), var(--periwinkle));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .writing-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .writing-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            margin-bottom: 4px;
+        }
+
+        .writing-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Contact */
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid var(--periwinkle);
+            border-radius: 30px;
+            text-decoration: none;
+            color: var(--deep-blue);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--cornflower);
+            border-color: var(--cornflower);
+            color: white;
+        }
+
+        .contact-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--cornflower);
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            header {
+                padding: 40px 0 30px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .quote {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 35px 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-content, .experience-item {
+                padding: 20px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=faces" alt="Sophie Kim" class="profile-img">
+            <h1>Sophie Kim</h1>
+            <p class="tagline">AI Safety Researcher</p>
+            <p class="quote">
+                "Tell me, what is it you plan to do with your one wild and precious life?"
+                <span class="quote-author">— Mary Oliver</span>
+            </p>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#experience">Experience</a>
+                <a href="#writing">Writing</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-content">
+                <p>
+                    I'm Sophie, a <span class="highlight">Stanford student</span> (Class of 2030) currently on a gap year to focus on AI safety research. I'm majoring in Symbolic Systems, drawn to the intersection of cognitive science, philosophy, and computation.
+                </p>
+                <p>
+                    My work centers on ensuring advanced AI systems remain beneficial and under meaningful human control. I research <span class="highlight">biosecurity risks from AI</span>, policy interventions for emerging threats, and institutional mechanisms for responsible AI development.
+                </p>
+                <p>
+                    I'm the youngest person admitted to the <span class="highlight">ERA Fellowship</span> (&lt;1% acceptance rate), where I'll be conducting research at the Cambridge Biosecurity Hub on tiered access controls for advanced AI/biology capabilities.
+                </p>
+                <p>
+                    Beyond research, I love reading, traveling, meeting new people, and diving into philosophy, psychology, and symbolic logic. I'm fluent in Spanish and always open to interesting conversations.
+                </p>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Focus</h2>
+            <div class="research-grid">
+                <div class="research-item">
+                    <h3>AI & Biosecurity</h3>
+                    <p>Bioweapon misuse pathways and policy interventions</p>
+                </div>
+                <div class="research-item">
+                    <h3>Governance Mechanisms</h3>
+                    <p>Whistleblower protections and institutional accountability</p>
+                </div>
+                <div class="research-item">
+                    <h3>Export Controls</h3>
+                    <p>Circumvention through cloud infrastructure</p>
+                </div>
+                <div class="research-item">
+                    <h3>AI Deterrence</h3>
+                    <p>Strategic equilibria and middle-power agency</p>
+                </div>
+                <div class="research-item">
+                    <h3>Tiered Access</h3>
+                    <p>Access controls for dual-use AI capabilities</p>
+                </div>
+                <div class="research-item">
+                    <h3>Novel Evaluations</h3>
+                    <p>Addressing benchmark saturation in AI assessment</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">ERA Fellow</div>
+                        <div class="experience-org">Cambridge Biosecurity Hub</div>
+                    </div>
+                    <span class="experience-date">Feb - Mar 2026</span>
+                </div>
+                <p class="experience-desc">Developing tiered access controls for advanced AI/biology capabilities. Research internship at one of the world's leading biosecurity research centers.</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Veritas Fellow</div>
+                        <div class="experience-org">Midas Project</div>
+                    </div>
+                    <span class="experience-date">2025</span>
+                </div>
+                <p class="experience-desc">Expanded an AI whistleblower guide for publication. Created print-native versions of the OpenAI Files using graphic design.</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Research Collaborator</div>
+                        <div class="experience-org">Center for AI Safety</div>
+                    </div>
+                    <span class="experience-date">2025</span>
+                </div>
+                <p class="experience-desc">Co-authored research on AI-enabled biosecurity risks and governance mechanisms for emerging threats.</p>
+            </div>
+        </section>
+
+        <section id="writing">
+            <h2>Writing</h2>
+            <a href="https://thecounterfactual.substack.com" target="_blank" rel="noopener" class="writing-link">
+                <div class="writing-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                </div>
+                <div class="writing-info">
+                    <h3>The Counterfactual</h3>
+                    <p>AI policy, security analysis, and strategic thinking on Substack</p>
+                </div>
+            </a>
+            <a href="https://curiouslysophie.com" target="_blank" rel="noopener" class="writing-link">
+                <div class="writing-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <div class="writing-info">
+                    <h3>curiouslysophie.com</h3>
+                    <p>Personal site with more about my adventures and interests</p>
+                </div>
+            </a>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-links">
+                <a href="mailto:sophie@curiouslysophie.com" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Email
+                </a>
+                <a href="https://twitter.com/curiouslysophie" target="_blank" rel="noopener" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Twitter
+                </a>
+                <a href="https://linkedin.com/in/curiouslysophie" target="_blank" rel="noopener" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with care by a friend. <a href="https://admonymous.co/curiouslysophie" target="_blank">Anonymous feedback</a> welcome.</p>
+        </footer>
+    </div>
+</body>
+</html>
